@@ -1,15 +1,6 @@
 #include "private_queue.h"
 #include "base_queue.h"
 
-private_queue::private_queue(void):base_queue()
-{
-}
-
-private_queue::~private_queue(void)
-{
-	
-}
-
 int private_queue::pop(void)
 {
 	elem *tmpTail = getTail();
@@ -22,15 +13,6 @@ int private_queue::pop(void)
 	elem tmp = *tmpHead;	
 	delete tmpHead;
 	return *tmp.getValue();
-}
-
-void private_queue::push(elem *newElem)
-{
-	if(getTail() != 0)
-		getTail()->setLink(newElem);
-	else
-		setHead(newElem);
-	setTail(newElem);
 }
 
 base_queue *private_queue::copy(void)

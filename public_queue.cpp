@@ -14,15 +14,6 @@ int public_queue::pop(void)
 	return *tmp.getValue();
 }
 
-void public_queue::push(elem *newElem)
-{
-	if(getTail() != 0)
-		getTail()->setLink(newElem);
-	else
-		setHead(newElem);
-	setTail(newElem);
-}
-
 base_queue *public_queue::copy(void)
 {
 	if(this->getTail()==0)

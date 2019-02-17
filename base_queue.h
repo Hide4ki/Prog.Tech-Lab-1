@@ -21,7 +21,6 @@ public:
 	base_queue *operator + (elem *op2);
 	base_queue *operator = (const base_queue *op2);
 	virtual int pop() = 0;
-	virtual void push(elem *newElem) = 0;
 	virtual base_queue *copy(void) = 0;
 	friend ostream &operator<< (ostream &stream, const base_queue *myQueue);
 };

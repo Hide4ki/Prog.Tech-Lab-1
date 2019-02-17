@@ -1,15 +1,6 @@
 #include "protected_queue.h"
 #include "base_queue.h"
 
-protected_queue::protected_queue(void):base_queue()
-{
-}
-
-protected_queue::~protected_queue(void)
-{
-	
-}
-
 int protected_queue::pop(void)
 {
 	elem *tmpTail = getTail();
@@ -22,15 +13,6 @@ int protected_queue::pop(void)
 	elem tmp = *tmpHead;	
 	delete tmpHead;
 	return *tmp.getValue();
-}
-
-void protected_queue::push(elem *newElem)
-{
-	if(getTail() != 0)
-		getTail()->setLink(newElem);
-	else
-		setHead(newElem);
-	setTail(newElem);
 }
 
 base_queue *protected_queue::copy(void)
