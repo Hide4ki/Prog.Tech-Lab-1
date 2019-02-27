@@ -9,7 +9,6 @@ class elem
 	elem *linkToNext;
 public:
 	elem(int x);
-	elem(const elem &myElem);
 	~elem(void);
 	void setLink(elem *next);
 	elem *getLink(void);

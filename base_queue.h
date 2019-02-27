@@ -17,10 +17,11 @@ public:
 	elem *getTail(void)const;
 	void setHead(elem *newHead);
 	void setTail(elem *newTail);
-	base_queue *operator + (const base_queue *op2);
+	int pop(void);
+	base_queue *operator + (base_queue *op2);
 	base_queue *operator + (elem *op2);
 	base_queue *operator = (const base_queue *op2);
-	virtual int pop() = 0;
+	virtual int calcul(void) = 0;
 	virtual base_queue *copy(void) = 0;
 	friend ostream &operator<< (ostream &stream, const base_queue *myQueue);
 };

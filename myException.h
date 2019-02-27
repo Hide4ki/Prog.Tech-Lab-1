@@ -1,7 +1,9 @@
 #pragma once
+
 #include <iostream>
 
 using std::ostream;
+
 class myException
 {
 	const char *textEx;

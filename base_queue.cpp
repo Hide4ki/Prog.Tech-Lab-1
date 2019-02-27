@@ -22,6 +22,20 @@ base_queue::~base_queue(void)
 	}
 }
 
+int base_queue::pop(void)
+{
+	if(tail == 0)
+		throw myException("Queue is empty!!!");
+	elem *tmpTail = tail;
+	elem *tmpHead = head;
+	head = head->getLink();
+	if(tmpHead == tmpTail)
+		setTail(NULL);
+	elem tmp = *tmpHead;	
+	delete tmpHead;
+	return *tmp.getValue();
+} 
+
 base_queue *base_queue::operator + (elem *op2)
 {
 	if(tail != 0)
@@ -65,17 +79,16 @@ base_queue *base_queue::operator = (const base_queue *op2)
 	return this;
 }
 
-base_queue *base_queue::operator+(const base_queue *op2)
+base_queue *base_queue::operator+(base_queue *op2)
 {
 	if(op2 == 0)
 		throw myException("Copy queue, not initialization!!!");
 	if(tail == 0 || op2->tail == 0)
 		throw myException("One of the queues or both are empty!!!");
-	elem *tmp = op2->head;
-	while(tmp!=0)
-	{
-		(*this)+ new elem(*tmp->getValue());
-		tmp = tmp->getLink();
-	}
+	tail->setLink(op2->head);
+	tail = op2->tail;
+	op2->tail = 0;
+	op2->head = 0;
 	return this;
 }
+

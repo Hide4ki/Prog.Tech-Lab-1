@@ -1,11 +1,5 @@
 #include "elem.h"
 
-elem::elem(const elem &myElem)
-{
-	value = new int(*myElem.value);
-	linkToNext = myElem.linkToNext;
-}
-
 elem::~elem(void)
 {
 	delete value;

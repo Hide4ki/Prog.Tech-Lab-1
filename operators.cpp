@@ -21,19 +21,6 @@ ostream &operator<< (ostream &stream, const base_queue *myQueue)
 	return stream;
 }
 
-ostream &operator<< (ostream &stream, const protected_queue *myQueue)
-{
-	cout << (base_queue*)myQueue;
-	return stream;
-}
-
-ostream &operator<< (ostream &stream, const private_queue *myQueue)
-{
-	cout << (base_queue*)myQueue;
-	return stream;
-}
-
-
 ostream &operator << (ostream &stream, const elem &myElem)
 {
 	stream << *myElem.value;

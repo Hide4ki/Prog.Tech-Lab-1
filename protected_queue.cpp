@@ -1,18 +1,10 @@
 #include "protected_queue.h"
 #include "base_queue.h"
 
-int protected_queue::pop(void)
+base_queue *protected_queue::get_ptr() 
 {
-	elem *tmpTail = getTail();
-	elem *tmpHead = getHead();
-	if(tmpTail == 0)
-		throw myException("Queue is empty!!!");
-	setHead(tmpHead->getLink());
-	if(tmpHead == tmpTail)
-		setTail(NULL);
-	elem tmp = *tmpHead;	
-	delete tmpHead;
-	return *tmp.getValue();
+	base_queue *result = new protected_queue;
+	return result;
 }
 
 base_queue *protected_queue::copy(void)
@@ -26,9 +18,9 @@ base_queue *protected_queue::copy(void)
 
 int protected_queue::calcul(void)
 {
-	elem *tmp = getHead();
 	if(getTail() == NULL)
 		throw myException("Queue is empty!!!");
+	elem *tmp = getHead();
 	int cnt = 0;
 	while(tmp->getLink() != NULL)
 	{
@@ -37,15 +29,4 @@ int protected_queue::calcul(void)
 		tmp = tmp->getLink();
 	}
 	return cnt;
-}
-
-base_queue *protected_queue::operator + (elem *op2)
-{
-	return *((base_queue*)this)+op2;
-}
-
-
-base_queue *protected_queue::operator+(const base_queue *op2)
-{
-	return *((base_queue*)this)+op2;
 }
