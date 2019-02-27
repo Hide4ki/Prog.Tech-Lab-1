@@ -31,7 +31,7 @@ ostream &operator << (ostream &stream, const elem &myElem)
 	return stream;
 }
 
-ostream &operator<< (ostream &stream, const myException a)
+ostream &operator<< (ostream &stream, const myException &a)
 {
 	stream  << "Error!!! " << a.textEx << endl;
 	return stream;

@@ -63,9 +63,9 @@ int main(void)
 				break;
 			case 7:
 				cout << "Goodbye"<< endl;
-				system("pause");
 				delete queue;
 				delete copyQueue;
+				system("pause");
 				return 0;
 			case 8 :
 				cout << "Selected, show copy!" << endl;
